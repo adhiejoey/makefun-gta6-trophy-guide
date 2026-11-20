@@ -1,0 +1,227 @@
+/* Leonida Platinum — a sunset-paper look of its own: warm paper, deep plum ink, coral accent, teal for earned. No game art. */
+:root {
+  --paper: #fff7ef;
+  --card: #ffffff;
+  --ink: #241a20;
+  --muted: #6d5b63;
+  --line: #e8d5c8;
+  --accent: #d24e2a;
+  --accent-soft: #fdeee7;
+  --teal: #0f766e;
+  --teal-soft: #e2f2ef;
+  --gold: #8a6d1b;
+  --platinum: #5b7a99;
+  --silver: #5f6b76;
+  --bronze: #8a5a2b;
+  --danger: #b3261e;
+  --danger-soft: #fdeceb;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+body, button, input, select { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+h1, h2, h3 { line-height: 1.15; margin: 0 0 8px; }
+h1 { font-size: 44px; letter-spacing: -0.5px; }
+h2 { font-size: 26px; }
+h3 { font-size: 19px; margin-top: 22px; }
+p { margin: 0 0 10px; }
+a { color: var(--accent); }
+button, input, select { font-size: 15px; }
+button { cursor: pointer; }
+.hidden { display: none !important; }
+.nowrap { white-space: nowrap; }
+
+.masthead {
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 26px 28px 18px;
+  border-bottom: 4px solid var(--accent);
+  background: linear-gradient(180deg, #ffe9d9, var(--paper));
+}
+.kicker { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
+.subtitle { color: var(--muted); max-width: 640px; font-size: 17px; }
+.progress-card {
+  flex: 0 0 300px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(36, 26, 32, 0.08);
+}
+.big-count { font-size: 34px; font-weight: bold; margin-bottom: 6px; }
+.big-count .of { font-size: 18px; color: var(--muted); font-weight: normal; }
+.bar { height: 12px; background: #f0e2d8; border-radius: 6px; overflow: hidden; }
+.bar .fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), #f08a3c); transition: width 0.2s; }
+.progress-detail { margin: 8px 0 4px; font-size: 14px; }
+.progress-note { font-size: 13px; color: var(--muted); margin: 0; }
+
+.tabs { display: flex; gap: 6px; padding: 12px 28px 0; flex-wrap: wrap; }
+.tab {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 9px 16px;
+  font-weight: bold;
+  color: var(--muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pill-count { background: #fff; color: var(--danger); border-radius: 10px; padding: 0 7px; font-size: 13px; margin-left: 4px; }
+
+.controls { padding: 14px 28px; border-bottom: 1px solid var(--line); background: var(--card); }
+.control-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.control-row:last-child { margin-bottom: 0; }
+.search-label input { width: 300px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; }
+.select-label select { padding: 7px 8px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.check { display: flex; gap: 6px; align-items: center; }
+.spoiler-check { font-weight: bold; color: var(--danger); }
+.kind-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.kind-btn {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 20px;
+  padding: 6px 13px;
+}
+.kind-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.kind-btn .n { opacity: 0.75; font-size: 13px; }
+.save-row button, .import-label {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px 12px;
+}
+.save-row button.quiet { background: #fff; color: var(--ink); }
+.import-label input { display: none; }
+.save-state { color: var(--teal); font-size: 14px; }
+.filter-state { color: var(--muted); font-size: 14px; }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(340px, 1fr); gap: 24px; padding: 18px 28px 28px; align-items: start; }
+.layout.single-col { grid-template-columns: minmax(0, 1fr); }
+.layout.single-col .detail-col { display: none; }
+.list-hint { color: var(--muted); font-size: 14px; }
+.trophy-list { list-style: none; margin: 0; padding: 0; }
+.trophy-row {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 10px;
+  align-items: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.trophy-row:hover { border-color: var(--accent); }
+.trophy-row.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.trophy-row.earned { background: var(--teal-soft); }
+.trophy-row input[type="checkbox"] { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--teal); cursor: pointer; }
+.trophy-name { font-weight: bold; font-size: 17px; }
+.trophy-row.earned .trophy-name { text-decoration: line-through; text-decoration-thickness: 1px; }
+.trophy-desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.trophy-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.tag {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 2px 6px;
+  background: #f0e9e4;
+  color: var(--muted);
+}
+.tag.grade-platinum { background: #dbe9f5; color: var(--platinum); }
+.tag.grade-gold { background: #f7ecc8; color: var(--gold); }
+.tag.grade-silver { background: #e6ebef; color: var(--silver); }
+.tag.grade-bronze { background: #f3e3cf; color: var(--bronze); }
+.tag.missable { background: var(--danger-soft); color: var(--danger); }
+.tag.hidden-flag { background: #ece4f2; color: #5b3a75; }
+.tag.kind { background: var(--accent-soft); color: var(--accent); }
+.trophy-count { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.trophy-count input { width: 64px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; margin-left: 4px; }
+.spoiler-mask { color: var(--muted); font-style: italic; }
+.grade-col { text-align: right; }
+
+.detail-col { position: sticky; top: 12px; }
+.detail {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(36, 26, 32, 0.08);
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+}
+.detail-empty { color: var(--muted); }
+.detail h2 { font-size: 24px; padding-right: 4px; }
+.detail .official { color: var(--muted); font-style: italic; }
+.detail .guide-text { font-size: 16px; }
+.detail .missable-banner {
+  background: var(--danger-soft);
+  border: 1px solid #f0b8b4;
+  color: var(--danger);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: bold;
+}
+.detail .meta-line { font-size: 14px; color: var(--muted); }
+.detail .earn-btn {
+  background: var(--teal);
+  border: 1px solid var(--teal);
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+}
+.detail .earn-btn.earned { background: #fff; color: var(--teal); }
+.sources-box { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 10px; }
+.sources-box h3 { font-size: 15px; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.sources-box ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.sources-box li { margin-bottom: 4px; }
+.sources-box a { overflow-wrap: anywhere; }
+
+.roadmap { list-style: none; margin: 0 0 10px; padding: 0; counter-reset: stage; }
+.roadmap li {
+  counter-increment: stage;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.roadmap li::before {
+  content: "Stage " counter(stage) " — ";
+  font-weight: bold;
+  color: var(--accent);
+}
+.roadmap .stage-hours { float: right; font-size: 13px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; }
+.roadmap-trophies { padding-left: 22px; }
+.roadmap-trophies li { margin-bottom: 5px; }
+.roadmap-trophies .stage-tag { font-size: 12px; color: var(--accent); font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
+.view-intro { color: var(--muted); font-size: 16px; }
+.safe-list li { margin-bottom: 6px; }
+.source-list li { margin-bottom: 10px; }
+.source-list a { overflow-wrap: anywhere; }
+footer { border-top: 1px solid var(--line); padding: 16px 28px 26px; color: var(--muted); font-size: 13px; }
+footer p { max-width: 900px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .detail-col { position: static; }
+  .masthead { flex-direction: column; }
+  .progress-card { flex-basis: auto; width: 100%; }
+  h1 { font-size: 34px; }
+  .search-label input { width: 100%; }
+}

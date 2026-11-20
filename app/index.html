@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, cited guides, a platinum roadmap, missable flags, saved progress with export and import, and a spoiler setting.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; works offline</p>
+    <h1>Leonida Platinum</h1>
+    <p class="subtitle">The complete trophy guide &amp; tracker — 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze. 28 hidden on PlayStation. No online trophies. About 200 hours to the platinum, one playthrough.</p>
+  </div>
+  <div class="progress-card" id="progressCard">
+    <p class="big-count"><span id="earnedCount">0</span><span class="of"> / 55 earned</span></p>
+    <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><div class="fill" id="progressFill"></div></div>
+    <p class="progress-detail" id="progressDetail">0 platinum &middot; 0 gold &middot; 0 silver &middot; 0 bronze</p>
+    <p class="progress-note">Progress saves in this browser (localStorage). Export it to keep a backup.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" class="tab active" data-view="tracker" id="tabTracker">Tracker</button>
+  <button type="button" class="tab" data-view="roadmap" id="tabRoadmap">Platinum roadmap</button>
+  <button type="button" class="tab" data-view="missables" id="tabMissables">Missables <span class="pill-count" id="missableCount">1</span></button>
+  <button type="button" class="tab" data-view="sources" id="tabSources">Sources &amp; method</button>
+</nav>
+
+<section class="controls" id="trackerControls" aria-label="Tracker controls">
+  <div class="control-row">
+    <label class="search-label">Search <input type="search" id="search" placeholder="Trophy or mission name…" autocomplete="off"></label>
+    <label class="select-label">Grade
+      <select id="gradeFilter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="hideEarned"> Hide earned</label>
+    <label class="check spoiler-check"><input type="checkbox" id="spoilerToggle"> Spoiler-safe: hide story trophies until earned</label>
+  </div>
+  <div class="kind-filters" id="kindFilters" role="group" aria-label="Filter by kind"></div>
+  <div class="control-row save-row">
+    <button type="button" id="exportBtn">Export progress (.json)</button>
+    <label class="import-label">Import progress <input type="file" id="importFile" accept="application/json,.json"></label>
+    <button type="button" id="resetBtn" class="quiet">Reset progress</button>
+    <span class="save-state" id="saveState">Saved in this browser</span>
+    <span class="filter-state" id="filterState"></span>
+  </div>
+</section>
+
+<main class="layout">
+  <div class="list-col">
+    <section id="viewTracker" class="view" aria-label="Trophy checklist">
+      <p class="list-hint" id="listHint">Click a trophy to read its guide and sources. Tick the box when you earn it.</p>
+      <ol class="trophy-list" id="trophyList"></ol>
+    </section>
+    <section id="viewRoadmap" class="view hidden" aria-label="Roadmap to the platinum">
+      <h2>Roadmap to the platinum — <span class="nowrap">Vice Got a Price!</span></h2>
+      <p class="view-intro">Built from the official trophy descriptions and PowerPyx's launch-week roadmap (difficulty 4/10, about 200 hours, one playthrough, no mission replay, cheats disable trophies and saving). Five stages, in order.</p>
+      <ol class="roadmap" id="roadmapList"></ol>
+      <h3>Roadmap order, trophy by trophy</h3>
+      <ol class="roadmap-trophies" id="roadmapTrophies"></ol>
+    </section>
+    <section id="viewMissables" class="view hidden" aria-label="Missable trophies">
+      <h2>Missable trophies</h2>
+      <p class="view-intro">Only one trophy is flagged as possibly missable by PowerPyx, GTABase and the other launch guides — and even that one is unconfirmed. Everything else can be earned after the story in free-roam, because there is no mission replay but Leonida stays open. Keep a manual save at the start and end of each chapter (15 manual slots) as insurance.</p>
+      <ol class="trophy-list" id="missableList"></ol>
+      <h3>Why the rest are safe</h3>
+      <ul class="safe-list">
+        <li>All 12 story trophies unlock automatically and cannot be missed.</li>
+        <li>Every side-character questline (Andy, Kenton, Billy, Randy, Tyrone, Bret) stays available after the story.</li>
+        <li>Strangers &amp; Freaks, robberies, activities and collectibles all stay open in free-roam.</li>
+        <li>Optional missions that disappear do not affect any trophy (PowerPyx).</li>
+      </ul>
+    </section>
+    <section id="viewSources" class="view hidden" aria-label="Sources and method">
+      <h2>Sources &amp; method</h2>
+      <p class="view-intro">Every guide in this app is written in my own words for this entry. Facts about where, how and when come from the sources below, named beside each trophy's guide — never copied from them. The official names, descriptions and grades are shown as PlayStation publishes them.</p>
+      <ul class="source-list" id="sourceList"></ul>
+      <h3>What is still unknown</h3>
+      <p>Grand Theft Auto VI launched 19 November 2026, a day before this guide was built. One trophy, <strong>Bad Luck, I Guess</strong>, is still listed as unknown by PowerPyx (believed to relate to the Payday Loans store from the prologue) — its guide says so plainly instead of inventing a method. The Chapter 1 meditation for Positive Mental Attitude is likewise flagged as possibly missable but unconfirmed; the guide tells you to do it anyway, because it costs nothing. Where a fact was genuinely unknowable at build time, the guide says what the official description implies and cites the official description itself.</p>
+      <h3>Offline</h3>
+      <p>This app is static files only. It fetches its trophy data from <code>data/trophies.json</code> on this same server and makes no network request at run time. Source links open only if you click them.</p>
+    </section>
+  </div>
+  <aside class="detail-col" aria-label="Selected trophy guide">
+    <div class="detail" id="detailPane">
+      <p class="detail-empty">Select a trophy on the left to read its guide and sources.</p>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <p>Leonida Platinum — an unofficial, open-source fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork or game screenshots are used. Trophy names, descriptions and grades are the official PlayStation 5 list as Exophase and PSNProfiles published it. Guides are original writing that cites its sources.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
